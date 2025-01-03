@@ -56,8 +56,8 @@ if(!usernameToCheck) {
 }
 
 if (usernameToCheck.includes(winnerUsername)) {
-  console.log("You might be the winner of today's Win2Day promotion!");
-  await sendTelegramNotification(`<b>Win2day Daily Promotion Winner</b>\nYou might be the winner of today's win2day promotion! The username starts with: <i>${winnerUsername}</i>\n<a href="${page}">${page}</a>`);
+  console.log("You might be the winner of today's win2day promotion!");
+  await sendTelegramNotification(`<b>win2day Daily Promotion Winner</b>\nYou might be the winner of today's win2day promotion! The username starts with: <i>${winnerUsername}</i>\n<a href="${page}">${page}</a>`);
 } else {
   console.log("You have *not* won today's win2day promotion.");
 }

@@ -1,7 +1,7 @@
 {
   "name": "win2day-winner-of-the-day-notifier",
   "version": "1.0.0",
-  "description": "Check the daily winner page of Win2Day for a username match and notify via Telegram in case of a match.",
+  "description": "Check the daily winner page of win2day for a username match and notify via Telegram in case of a match.",
   "main": "scraper.js",
   "scripts": {
     "start": "node scraper.js"
