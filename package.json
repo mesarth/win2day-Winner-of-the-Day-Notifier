@@ -1,0 +1,11 @@
+{
+  "name": "win2day-winner-of-the-day-notifier",
+  "version": "1.0.0",
+  "description": "Check the daily winner page for a username match and notify via Telegram",
+  "main": "scraper.js",
+  "scripts": {
+    "start": "node scraper.js"
+  },
+  "author": "Tobias Schranz",
+  "license": "Apache-2.0"
+}
