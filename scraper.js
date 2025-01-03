@@ -1,7 +1,7 @@
 import sqlite3 from "sqlite3";
 
-const page = "https://www.win2day.at/promotions-gewinnspiele/gewinner-des-tages";
-const winnerTextPrefix = "Heute ist die win2day Userin oder der win2day User mit dem Nickname ";
+const page = process.env.MORPH_WINNER_PAGE_URL || "https://www.win2day.at/promotions-gewinnspiele/gewinner-des-tages";
+const winnerTextPrefix = process.env.MORPH_WINNER_TEXT_PREFIX || "Heute ist die win2day Userin oder der win2day User mit dem Nickname ";
 const usernameToCheck = process.env.MORPH_USERNAME_TO_CHECK?.toLowerCase();
 const winnerUsernameLength = 3;
 
