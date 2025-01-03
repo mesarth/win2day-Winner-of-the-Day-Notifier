@@ -1,6 +1,6 @@
 {
   "name": "win2day-winner-of-the-day-notifier",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Check the daily winner page of win2day for a username match and notify via Telegram in case of a match.",
   "main": "scraper.js",
   "scripts": {
@@ -8,8 +8,10 @@
   },
   "author": "Tobias Schranz",
   "license": "Apache-2.0",
-  "type": "module",
   "dependencies": {
-    "sqlite3": "^5.1.7"
+    "sqlite3": "latest"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
