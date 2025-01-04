@@ -29,6 +29,11 @@ const response = await fetch(page);
 const html = await response.text();
 
 const winnerUsernameIndex = html.indexOf(winnerTextPrefix);
+if (winnerUsernameIndex === -1) {
+  console.log("Could not find the winner username on the page.");
+  process.exit(1);
+}
+
 const winnerUsernameStart = winnerUsernameIndex + winnerTextPrefix.length;
 
 const winnerUsername = html.substring(winnerUsernameStart, winnerUsernameStart + winnerUsernameLength).toLowerCase();
