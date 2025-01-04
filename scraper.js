@@ -1,5 +1,3 @@
-import sqlite3 from "sqlite3";
-
 const page = process.env.WINNER_PAGE_URL || "https://www.win2day.at/promotions-gewinnspiele/gewinner-des-tages";
 const winnerTextPrefix = process.env.WINNER_TEXT_PREFIX || "Heute ist die win2day Userin oder der win2day User mit dem Nickname ";
 const usernameToCheck = process.env.USERNAME_TO_CHECK?.toLowerCase();
@@ -27,18 +25,6 @@ const sendTelegramNotification = async (message) => {
   console.log("Telegram notification sent successfully.");
 }
 
-const saveUsernameToDatabase = (username) => {
-  console.log("Saving username to database...");
-  const db = new sqlite3.Database("data.sqlite");
-  db.serialize(function() {
-    db.run("CREATE TABLE IF NOT EXISTS data (username TEXT, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)");
-    const statement = db.prepare("INSERT INTO data (username) VALUES (?)");
-    statement.run(username);
-    statement.finalize();
-    console.log("Username saved to database.");
-  });
-}
-
 const response = await fetch(page);
 const html = await response.text();
 
@@ -46,7 +32,6 @@ const winnerUsernameIndex = html.indexOf(winnerTextPrefix);
 const winnerUsernameStart = winnerUsernameIndex + winnerTextPrefix.length;
 
 const winnerUsername = html.substring(winnerUsernameStart, winnerUsernameStart + winnerUsernameLength).toLowerCase();
-saveUsernameToDatabase(winnerUsername);
 
 console.log("The username of today's winner starts with: " + winnerUsername);
 
