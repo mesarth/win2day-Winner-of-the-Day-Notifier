@@ -1,13 +1,13 @@
 import sqlite3 from "sqlite3";
 
-const page = process.env.MORPH_WINNER_PAGE_URL || "https://www.win2day.at/promotions-gewinnspiele/gewinner-des-tages";
-const winnerTextPrefix = process.env.MORPH_WINNER_TEXT_PREFIX || "Heute ist die win2day Userin oder der win2day User mit dem Nickname ";
-const usernameToCheck = process.env.MORPH_USERNAME_TO_CHECK?.toLowerCase();
+const page = process.env.WINNER_PAGE_URL || "https://www.win2day.at/promotions-gewinnspiele/gewinner-des-tages";
+const winnerTextPrefix = process.env.WINNER_TEXT_PREFIX || "Heute ist die win2day Userin oder der win2day User mit dem Nickname ";
+const usernameToCheck = process.env.USERNAME_TO_CHECK?.toLowerCase();
 const winnerUsernameLength = 3;
 
 const sendTelegramNotification = async (message) => {
-  const telegramBotToken = process.env.MORPH_TELEGRAM_BOT_TOKEN;
-  const telegramChatId = process.env.MORPH_TELEGRAM_CHAT_ID;
+  const telegramBotToken = process.env.TELEGRAM_BOT_TOKEN;
+  const telegramChatId = process.env.TELEGRAM_CHAT_ID;
   const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`
 
   const response = await fetch(url, {
@@ -51,7 +51,7 @@ saveUsernameToDatabase(winnerUsername);
 console.log("The username of today's winner starts with: " + winnerUsername);
 
 if(!usernameToCheck) {
-  console.log("Please set the MORPH_USERNAME_TO_CHECK environment variable to check if you are the winner.");
+  console.log("Please set the USERNAME_TO_CHECK environment variable to check if you are the winner.");
   process.exit(1);
 }
 

@@ -7,11 +7,5 @@
     "start": "node scraper.js"
   },
   "author": "Tobias Schranz",
-  "license": "Apache-2.0",
-  "dependencies": {
-    "sqlite3": "latest"
-  },
-  "engines": {
-    "node": "16.x"
-  }
+  "license": "Apache-2.0"
 }
